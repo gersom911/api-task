@@ -18,9 +18,17 @@ from django.urls import path,include
 from drf_spectacular.views import SpectacularAPIView,SpectacularSwaggerView,SpectacularRedocView
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #para la api
     path('', include(('api.urls', 'api') , namespace = 'api')),
+    #para el esquema
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    # Optional UI:
+    # para la documentacion 
     path('api/swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger'),
     path('api/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+   #para crear el login y el registro
+    path("accounts/", include("django.contrib.auth.urls")),
+    
+     #importo elregistro
+   path('registro/', include('user.urls')),
 ]
+

@@ -45,12 +45,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
+    'user',
+  
     'rest_framework',
     'rest_framework.authtoken',
     'drf_spectacular',
    # 'drf_spectacular_sidecar',
     'rest_framework_simplejwt',
+     'crispy_forms',
+    "crispy_bootstrap5",
 ]
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,10 +74,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'app.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS':[os.path.join(BASE_DIR,'templetes')],#g
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
